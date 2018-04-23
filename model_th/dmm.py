@@ -429,7 +429,7 @@ class DMM(BaseModel, object):
         #Updates ack
         self.updates_ack         = True
         """ Setup functions to evaluate the model """
-	evaldict                 = {}
+        evaldict                 = {}
         eval_cost                = self._neg_elbo(X, M, anneal = 1., dropout_prob = 0., additional= evaldict)
         self.evaluate            = theano.function([idx], eval_cost, name = 'Evaluate Bound',allow_input_downcast=True)
         self.nll_feat            = theano.function([idx],evaldict['nll_mat'], name = 'NLL features',allow_input_downcast=True)
